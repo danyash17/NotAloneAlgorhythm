@@ -7,21 +7,15 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class FormComparator {
-
     public Map<Integer, Form> getRelevants(int id, List<Form> list) {
         Map<Integer, Form> results,ratings = new TreeMap<>();
+        QuestionComparator questionComparator = new QuestionComparator();
         Form targetForm = list.get(id);
         for (Form currentForm:list) {
-            int rating = compare(targetForm,currentForm);
+            int rating = questionComparator.compareAll(currentForm.getQuestions(),targetForm.getQuestions());
             ratings.put(rating,currentForm);
         }
 
         return null;
-    }
-
-    private int compare(Form targetForm, Form currentForm) {
-
-
-        return 0;
     }
 }

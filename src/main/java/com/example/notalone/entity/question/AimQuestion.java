@@ -1,13 +1,23 @@
 package com.example.notalone.entity.question;
 
-public class AimQuestion implements Question {
-    public enum Aim {
-        FRIENDSHIP,
-        RELATIONSHIPS,
-        ANYTHING
-    }
+import com.example.notalone.enums.Aim;
 
+import java.util.Map;
+import java.util.TreeMap;
+
+public class AimQuestion implements Question {
+    public static final Map<Aim, Integer> order = new TreeMap<>() {{
+        put(Aim.FRIENDSHIP, 0);
+        put(Aim.RELATIONSHIPS, 1);
+        put(Aim.ANYTHING, 2);
+    }};
+    public static final int[][] matrix = {
+            {10, 0, 10},
+            {0, 10, 10},
+            {10, 10, 10}
+    };
     private Aim aim;
+
 
     public AimQuestion(String string) {
         init(string);
@@ -34,6 +44,7 @@ public class AimQuestion implements Question {
     public void setAim(Aim aim) {
         this.aim = aim;
     }
+
 
     @Override
     public String toString() {
