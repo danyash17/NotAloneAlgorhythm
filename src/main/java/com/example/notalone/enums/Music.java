@@ -14,5 +14,5 @@ public enum Music {
     HIP_HOP,
     RITMNBLUES,
     AMBIENT,
-    COUTRY
+    COUNTRY
 }

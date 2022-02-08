@@ -1,8 +1,18 @@
 package com.example.notalone.entity.question;
 
-public class BlindDateQuestion implements Question{
-    private boolean blindDate;
+import java.util.Map;
+import java.util.TreeMap;
 
+public class BlindDateQuestion implements Question{
+    private Boolean blindDate;
+    public static final Map<Boolean, Integer> order = new TreeMap<>() {{
+        put(Boolean.TRUE, 0);
+        put(Boolean.FALSE, 1);
+    }};
+    public static final int[][] matrix = {
+            {10, -5},
+            {-5, 10},
+    };
     public BlindDateQuestion(String string) {
         init(string);
     }
@@ -10,10 +20,10 @@ public class BlindDateQuestion implements Question{
     private void init(String string) {
         switch (string){
             case "Нет":
-                blindDate = false;
+                blindDate = Boolean.FALSE;
                 break;
             case "Да":
-                blindDate = true;
+                blindDate = Boolean.TRUE;
                 break;
         }
     }

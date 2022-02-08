@@ -21,8 +21,6 @@ public class NameQuestion implements Question{
 
     @Override
     public String toString() {
-        return "NameQuestion{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

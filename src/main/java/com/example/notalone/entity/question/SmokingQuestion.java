@@ -2,15 +2,28 @@ package com.example.notalone.entity.question;
 
 import com.example.notalone.enums.Opinion;
 
-public class SmokingQuestion implements Question{
-    private Opinion opinion;
+import java.util.Map;
+import java.util.TreeMap;
 
-    public SmokingQuestion(String  string) {
+public class SmokingQuestion implements Question {
+    private Opinion opinion;
+    public static final Map<Opinion, Integer> order = new TreeMap<>() {{
+        put(Opinion.POSITIVE, 0);
+        put(Opinion.NEGATIVE, 1);
+        put(Opinion.NEUTRAL, 2);
+    }};
+    public static final int[][] matrix = {
+            {10, 0, 10},
+            {0, 10, 10},
+            {10, 10, 10}
+    };
+
+    public SmokingQuestion(String string) {
         init(string);
     }
 
     private void init(String string) {
-        switch (string){
+        switch (string) {
             case "Негативное":
                 opinion = Opinion.NEGATIVE;
                 break;

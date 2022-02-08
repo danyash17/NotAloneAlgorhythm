@@ -4,9 +4,45 @@ import com.example.notalone.enums.Negatives;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class PartnerNegativesQuestion implements Question{
+public class PartnerNegativesQuestion implements Question {
     private List<Negatives> negatives;
+    public static final Map<Negatives, Integer> order = new TreeMap<>() {{
+        put(Negatives.GORDOST, 0);
+        put(Negatives.EGOISM, 1);
+        put(Negatives.REVNOST, 2);
+        put(Negatives.OBIDCHIVOST, 3);
+        put(Negatives.ZAVIST, 4);
+        put(Negatives.MSTITELNOST, 5);
+        put(Negatives.ZHESTOKOST, 6);
+        put(Negatives.GLUPOST, 7);
+        put(Negatives.NERIASHLIVOST, 8);
+        put(Negatives.LOZH, 9);
+        put(Negatives.LICEMERIE, 10);
+        put(Negatives.ZHADNOST, 11);
+        put(Negatives.LEN, 12);
+        put(Negatives.PESSIMISM, 13);
+        put(Negatives.NAGLOST, 14);
+    }};
+    public static final int[][] matrix = {
+            {-10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10}
+    };
 
     public PartnerNegativesQuestion(String string) {
         negatives = new ArrayList<>();

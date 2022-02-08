@@ -2,8 +2,19 @@ package com.example.notalone.entity.question;
 
 import com.example.notalone.enums.Location;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 public class LocationQuestion implements Question{
     private Location location;
+    public static final Map<Location, Integer> order = new TreeMap<>() {{
+        put(Location.MINSK, 0);
+        put(Location.DORMITORY, 1);
+    }};
+    public static final int[][] matrix = {
+            {10, 10},
+            {10, 0},
+    };
 
     public LocationQuestion(String string) {
         init(string);
