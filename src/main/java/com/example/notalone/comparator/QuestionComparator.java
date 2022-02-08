@@ -1,19 +1,20 @@
 package com.example.notalone.comparator;
 
 import com.example.notalone.entity.question.AimQuestion;
+import com.example.notalone.entity.question.OwnGenderQuestion;
+import com.example.notalone.entity.question.PartnerGenderQuestion;
 import com.example.notalone.entity.question.Question;
 import com.example.notalone.enums.Aim;
+import com.example.notalone.enums.Gender;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class QuestionComparator {
-    public static final List<Class> indexingQuestions = new ArrayList<>() {{
-        add(AimQuestion.class);
-    }};
+    private Gender[] sourceGenders;
 
     public int compareAll(List<Question> current, List<Question> target) {
         int sum = 0;
@@ -25,15 +26,19 @@ public class QuestionComparator {
 
     private int invoke(Question current, Question target) {
         int result = 0;
-        QuestionComparator obj = new QuestionComparator();
-        Class objClass = obj.getClass();
+        Class objClass = this.getClass();
         Method[] allMethods = objClass.getDeclaredMethods();
         for (Method method : allMethods) {
             String methodName = method.getName();
-            if (methodName.equals("compare") && indexingQuestions.contains(current.getClass())
-                    && indexingQuestions.contains(target.getClass())) {
+            if (Arrays.stream(method.getParameterTypes()).allMatch(type -> type.equals(current.getClass()))) {
                 try {
-                    result = (int) method.invoke(obj, current, target);
+                    if (current.getClass() != OwnGenderQuestion.class) {
+                        result = (int) method.invoke(this, current, target);
+                        break;
+                    } else if (method.getReturnType().isArray()) {
+                        this.sourceGenders = (Gender[]) method.invoke(this, current, target);
+                        return 0;
+                    }
                 } catch (InvocationTargetException | IllegalAccessException ignored) {
                 }
             }
@@ -43,6 +48,30 @@ public class QuestionComparator {
 
     public int compare(AimQuestion current, AimQuestion target) {
         Map<Aim, Integer> map = AimQuestion.order;
-        return AimQuestion.matrix[map.get(current.getAim())][map.get(target.getAim())];
+        return 10 * AimQuestion.matrix[map.get(current.getAim())][map.get(target.getAim())];
     }
+
+    public int compare(PartnerGenderQuestion current, PartnerGenderQuestion target) {
+        int result = 0;
+        int temp = 0;
+        boolean dismatch = false;
+        Map<Gender, Integer> map = PartnerGenderQuestion.order;
+        if (current.getGender() != Gender.ANYONE) {
+            temp = PartnerGenderQuestion.matrix[map.get(current.getGender())][map.get(sourceGenders[1])];
+            dismatch = temp==0;
+            result+=temp;
+        } else result += 10;
+        if (target.getGender() != Gender.ANYONE) {
+            temp = PartnerGenderQuestion.matrix[map.get(target.getGender())][map.get(sourceGenders[0])];
+            dismatch = temp==0;
+            result+=temp;
+        } else result += 10;
+        result -= dismatch ? result : 0;
+        return 10 * result;
+    }
+
+    public Gender[] compare(OwnGenderQuestion current, OwnGenderQuestion target) {
+        return new Gender[]{current.getGender(), target.getGender()};
+    }
+
 }
