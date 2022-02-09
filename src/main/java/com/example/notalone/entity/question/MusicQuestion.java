@@ -58,7 +58,7 @@ public class MusicQuestion implements Question {
                 case "Рок":
                     music.add(Music.ROCK);
                     break;
-                case "Шансон,романс,авторская песня":
+                case "Шансон(романс/авторская песня)":
                     music.add(Music.SHANSON);
                     break;
                 case "Классическая музыка":

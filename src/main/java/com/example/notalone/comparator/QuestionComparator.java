@@ -5,7 +5,6 @@ import com.example.notalone.enums.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -41,8 +40,9 @@ public class QuestionComparator {
 
     public int compare(AimQuestion current, AimQuestion target) {
         Map<Aim, Integer> map = AimQuestion.order;
-        return 10 * AimQuestion.matrix[map.get(current.getAim())][map.get(target.getAim())];
+        return 90 * AimQuestion.matrix[map.get(current.getAim())][map.get(target.getAim())];
     }
+
 
     public int compare(LocationQuestion current, LocationQuestion target) {
         Map<Location, Integer> map = LocationQuestion.order;
@@ -69,7 +69,7 @@ public class QuestionComparator {
     }
     public int compare(BlindDateQuestion current, BlindDateQuestion target) {
         Map<Boolean, Integer> map = BlindDateQuestion.order;
-        return 10 * BlindDateQuestion.matrix[map.get(current.isBlindDate())][map.get(target.isBlindDate())];
+        return 5 * BlindDateQuestion.matrix[map.get(current.isBlindDate())][map.get(target.isBlindDate())];
     }
 
     public int compare(MusicQuestion current, MusicQuestion target) {
@@ -135,13 +135,13 @@ public class QuestionComparator {
                 result += PartnerNegativesQuestion.matrix[map.get(targetNegative)][map.get(sourceCurrentNegative)];
             }
         }
-        result /= currentNegativesList.size() * targetNegativesList.size();
+        result /= sourceNegatives[0].size() * sourceNegatives[1].size();
         return 10 * result;
     }
 
     public int compare(PartnerGenderQuestion current, PartnerGenderQuestion target) {
         int result = 0;
-        int temp = 0;
+        int temp;
         boolean dismatch = false;
         Map<Gender, Integer> map = PartnerGenderQuestion.order;
         if (current.getGender() != Gender.ANYONE) {
@@ -155,7 +155,7 @@ public class QuestionComparator {
             result += temp;
         } else result += 10;
         result -= dismatch ? result : 0;
-        return 50 * result;
+        return 90 * result;
     }
 
     public int compare(OwnGenderQuestion current, OwnGenderQuestion target) {

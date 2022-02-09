@@ -1,22 +1,20 @@
 package com.example.notalone.comparator;
 
 import com.example.notalone.entity.form.Form;
+import com.example.notalone.entity.pair.Pair;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class FormComparator {
-    public Map<Integer, Form> getRelevants(int id, List<Form> list) {
-        Map<Integer, Form> ratings = new HashMap<>();
+    public List<Pair> getRelevants(int id, List<Form> list) {
         QuestionComparator questionComparator = new QuestionComparator();
+        List<Pair> pairs = new ArrayList<>();
         Form targetForm = list.get(id);
         for (Form currentForm:list) {
-            int rating = questionComparator.compareAll(currentForm.getQuestions(),targetForm.getQuestions());
-            ratings.put(rating,currentForm);
+            int rating = questionComparator.compareAll(currentForm.getQuestions(), targetForm.getQuestions());
+            pairs.add(new Pair(currentForm, targetForm, rating));
         }
-        Map<Integer, Form> results = new TreeMap<>(ratings).descendingMap();
-        return results;
+        pairs.sort(Comparator.comparing(Pair::getRelevance).reversed());
+        return pairs;
     }
 }

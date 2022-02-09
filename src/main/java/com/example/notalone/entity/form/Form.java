@@ -5,7 +5,7 @@ import com.example.notalone.entity.question.Question;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form {
+public class Form{
     private List<Question> questions;
 
     public Form(List<Question> questions) {

@@ -12,8 +12,8 @@ public class LocationQuestion implements Question{
         put(Location.DORMITORY, 1);
     }};
     public static final int[][] matrix = {
-            {10, 10},
-            {10, 0},
+            {10, 8},
+            {8, 0},
     };
 
     public LocationQuestion(String string) {
