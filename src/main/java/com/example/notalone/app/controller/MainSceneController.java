@@ -2,6 +2,8 @@ package com.example.notalone.app.controller;
 
 import com.example.notalone.algo.entity.Form;
 import com.example.notalone.algo.entity.Pair;
+import com.example.notalone.algo.entity.questionnaire.Questionnaire;
+import com.example.notalone.algo.entity.questionnaire.question.Question;
 import com.example.notalone.algo.factory.RelevantsFactory;
 import com.example.notalone.algo.mapper.FormMapper;
 import com.example.notalone.algo.mapper.QuestionnaireMapper;
@@ -24,6 +26,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainSceneController implements Initializable {
 
@@ -69,13 +73,17 @@ public class MainSceneController implements Initializable {
     private CheckBox friendshipcheck;
     private Session session;
     private ProfileSelection profileSelection;
+    private final FormMapper formMapper = new FormMapper();
 
     @FXML
     void findbuttonaction(ActionEvent event) {
-        List<Form> forms = session.getForms();
-        for (Form form : forms) {
+
+        List<Questionnaire> questionnaires = session.getQuestionnaires();
+        for (int i = 0; i < questionnaires.size(); i++) {
+            Form form = formMapper.map(questionnaires.get(i));
             if (Integer.parseInt(idtextfieid.getText()) == form.getId()) {
                 this.showLeftProfile(form, rightanchorpane);
+                break;
             }
         }
     }
@@ -100,7 +108,8 @@ public class MainSceneController implements Initializable {
     @FXML
     void showRelevants(ActionEvent event) {
         RelevantsFactory factory = new RelevantsFactory();
-        List<Pair> pairs = factory.getRelevants(Integer.parseInt(idtextfieid.getText()),session.getForms(),session.getQuestionnaires());
+        List<Pair> pairs = factory.getRelevants(Integer.parseInt(idtextfieid.getText()) - 2, session.getQuestionnaires());
+        grid.getChildren().clear();
         try {
             for (int i = Integer.parseInt(starttext.getText()); i < pairs.size() && i < Integer.parseInt(endtext.getText()); i++) {
                 if (filter()) {
@@ -109,7 +118,8 @@ public class MainSceneController implements Initializable {
                     fxmlLoader.setLocation(getClass().getResource("fxml/MiniProfile.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
                     MiniProfileController imageController = fxmlLoader.getController();
-                    imageController.setData(pair.getCurrent(), profileSelection, pair.getRelevance());
+                    Form form = formMapper.map(pair.getCurrent());
+                    imageController.setData(form, profileSelection, pair.getRelevance(), form.getId());
                     grid.add(anchorPane, 0, i);
                 }
             }
@@ -137,18 +147,20 @@ public class MainSceneController implements Initializable {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Выберите Excel файл");
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel файл", "*.xlsx"));
-        File file = chooser.showOpenDialog(new Stage());
+        File file = null;
         session = new Session(file);
         try {
+            file = chooser.showOpenDialog(new Stage());
             session.setTable(new XlsParser().parse(file));
-            session.setQuestionnaires(new QuestionnaireMapper().map(session.getTable()));;
-            session.setForms(new FormMapper().map(session.getQuestionnaires()));
+            session.setQuestionnaires(new QuestionnaireMapper().map(session.getTable()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        menu.setStyle("-fx-background-color: #17A226");
-        findbutton.setDisable(false);
-        applybutton.setDisable(false);
+        if (file != null) {
+            menu.setStyle("-fx-background-color: #17A226");
+            findbutton.setDisable(false);
+            applybutton.setDisable(false);
+        }
     }
 
     public void closeFile(ActionEvent actionEvent) {

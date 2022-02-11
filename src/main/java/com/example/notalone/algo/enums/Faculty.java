@@ -30,7 +30,7 @@ public enum Faculty {
             case HISTORICAL -> "Истфак";
             case MECHMAT -> "Мехмат";
             case FPM -> "ФПМИ";
-            case RPACT -> "Радиофизики и компьютерных технологий ";
+            case RPACT -> "Раф ";
             case FSC -> "ФСК";
             case PHILOSOFIC -> "ФФСН";
             case PHYSICAL -> "Физфак";

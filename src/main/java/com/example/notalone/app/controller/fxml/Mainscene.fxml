@@ -25,7 +25,7 @@
    <children>
       <MenuBar layoutX="10.0" layoutY="10.0" style="-fx-background-color: FFF3E8;">
          <menus>
-            <Menu fx:id="menu" mnemonicParsing="false" text="Файл">
+            <Menu fx:id="menu" mnemonicParsing="false" text="Файл" >
                <items>
                   <MenuItem fx:id="openMenuButton" mnemonicParsing="false" onAction="#openFile" text="Открыть базу…" />
                   <MenuItem fx:id="closeMenuButton" mnemonicParsing="false" onAction="#closeFile" text="Закрыть базу" />

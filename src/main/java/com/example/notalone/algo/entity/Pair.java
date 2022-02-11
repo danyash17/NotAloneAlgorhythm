@@ -3,32 +3,32 @@ package com.example.notalone.algo.entity;
 import com.example.notalone.algo.entity.questionnaire.Questionnaire;
 
 public class Pair {
-    private Form current;
-    private Form target;
+    private Questionnaire current;
+    private Questionnaire target;
     private int relevance;
 
-    public Pair() {
-    }
-
-    public Pair(Form current, Form target, int relevance) {
+    public Pair(Questionnaire current, Questionnaire target, int relevance) {
         this.current = current;
         this.target = target;
         this.relevance = relevance;
     }
 
-    public Form getCurrent() {
+    public Pair() {
+    }
+
+    public Questionnaire getCurrent() {
         return current;
     }
 
-    public void setCurrent(Form current) {
+    public void setCurrent(Questionnaire current) {
         this.current = current;
     }
 
-    public Form getTarget() {
+    public Questionnaire getTarget() {
         return target;
     }
 
-    public void setTarget(Form target) {
+    public void setTarget(Questionnaire target) {
         this.target = target;
     }
 

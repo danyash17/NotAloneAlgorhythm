@@ -11,6 +11,7 @@ import java.util.TreeMap;
 
 public class QuestionnaireMapper {
     private static final Map<Integer, Class> questionMap = new TreeMap<Integer, Class>() {{
+        put(0, IdQuestion.class);
         put(1, EmailQuestion.class);
         put(2, NameQuestion.class);
         put(3, AimQuestion.class);
@@ -39,7 +40,7 @@ public class QuestionnaireMapper {
         List<Questionnaire> questionnaires = new ArrayList<>();
         for (List<String> list:table) {
             Questionnaire questionnaire = new Questionnaire();
-            for (int i = 1; i <= 22; i++) {
+            for (int i = 0; i <= 22; i++) {
                 Class aClass = questionMap.get(i);
                 Question question = null;
                 try {

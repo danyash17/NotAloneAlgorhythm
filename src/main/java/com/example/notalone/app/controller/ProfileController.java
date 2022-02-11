@@ -9,18 +9,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import java.awt.*;
+
+import java.awt.Desktop;
 
 
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
 public class ProfileController {
     @FXML
-    public Hyperlink link;
+    public ImageView imageView;
 
     @FXML
     private Label aboutmetext;
@@ -39,8 +45,8 @@ public class ProfileController {
     @FXML
     void showtheform(ActionEvent event) throws IOException {
 
-        Stage window= new Stage();
-        FormController formController =new FormController();
+        Stage window = new Stage();
+        FormController formController = new FormController();
         formController.setData(form);
         Parent root = FXMLLoader.load(getClass().getResource("fxml/Form.fxml"));
         window.setTitle("(Не)один");
@@ -50,17 +56,23 @@ public class ProfileController {
 
     }
 
-    public void setData(Form form){
+    public void setData(Form form) {
         this.form = form;
-        aboutmetext.setText("Цель: ["+ form.getAim()+"] \n"+ form.getMessage());
-        nameandagetext.setText(form.getName()+", "+ form.getFaculty());
-        link.setText(form.getPhotoReference());
+        aboutmetext.setText("Цель: [" + form.getAim() + "] \n" + form.getMessage());
+        nameandagetext.setText(form.getName() + ", " + form.getFaculty());
+        String path = form.getGender().equals("Мужчина")? "/man.png" : "/woman.png";
+        Image image =new Image(getClass().getResourceAsStream(path));
+        imageView.setImage(image);
+        imageView.setPickOnBounds(true);
+        imageView.setOnMouseClicked(e -> {
+            openLink(form.getPhotoReference());
+        });
         ordercommenttext.setText(form.getComment());
     }
 
-    public void openLink(ActionEvent actionEvent) {
+    public void openLink(String uri) {
         try {
-            Desktop.getDesktop().browse(new URI(link.getText()));
+            Desktop.getDesktop().browse(new URI(uri));
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }

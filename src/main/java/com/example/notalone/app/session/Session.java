@@ -10,7 +10,6 @@ public class Session {
     private File base;
     private File photoDirectory;
     private List<List<String>> table;
-    private List<Form> forms;
     private List<Questionnaire> questionnaires;
 
     public Session(File base) {
@@ -31,14 +30,6 @@ public class Session {
 
     public void setTable(List<List<String>> table) {
         this.table = table;
-    }
-
-    public List<Form> getForms() {
-        return forms;
-    }
-
-    public void setForms(List<Form> questionnaires) {
-        this.forms = questionnaires;
     }
 
     public List<Questionnaire> getQuestionnaires() {
