@@ -28,15 +28,15 @@ public class MiniProfileController{
 
     private Form form;
 
-    public void setData(Form form, ProfileSelection profile_selection){
+    public void setData(Form form, ProfileSelection profile_selection, int compability){
         this.form = form;
         this.profile_selection=profile_selection;
-        compatibilitytext.setText(" "+ form.getCompatibility());
+        compatibilitytext.setText(String.valueOf(compability));
         nametext.setText(form.getName());
-        idtext.setText(" "+ form.getID());
+        idtext.setText(" "+ form.getId());
         facultetext.setText(form.getFaculty());
-        Image image =new Image(getClass().getResourceAsStream(form.getPhoto_link()));// 100,100,false,false
-        profileimage.setImage(image);
+        //Image image =new Image(getClass().getResourceAsStream(form.getPhotoReference()));// 100,100,false,false
+        //profileimage.setImage(image);
 
     }
 

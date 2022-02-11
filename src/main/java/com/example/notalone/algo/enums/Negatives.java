@@ -15,5 +15,24 @@ public enum Negatives {
     ZHADNOST,
     LEN,
     PESSIMISM,
-    NAGLOST
+    NAGLOST;
+    public static String getViewValue(Negatives negatives){
+        return switch (negatives) {
+            case GORDOST -> " Гордость ";
+            case EGOISM -> " Эгоизм ";
+            case REVNOST -> " Ревность ";
+            case OBIDCHIVOST -> " Обидчивость ";
+            case ZAVIST -> " Зависть ";
+            case MSTITELNOST -> " Мстительность ";
+            case ZHESTOKOST -> " Жестокость ";
+            case GLUPOST -> " Глупость ";
+            case NERIASHLIVOST -> " Неряшливость ";
+            case LOZH -> " Ложь ";
+            case LICEMERIE -> " Лицемерие ";
+            case ZHADNOST -> " Жадность ";
+            case LEN -> " Лень ";
+            case PESSIMISM -> " Пессимизм ";
+            case NAGLOST -> " Наглость ";
+        };
+    }
 }

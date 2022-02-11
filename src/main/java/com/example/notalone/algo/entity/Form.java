@@ -1,18 +1,29 @@
 package com.example.notalone.algo.entity;
 
 public class Form {
-    private int ID;
+    private int id;
+    private String email;
     private String name;
-    private String link;
+    private String reference;
     private String gender;
-    private String purpose;
+    private String aim;
+    private String music;
+    private String hobbies;
     private String faculty;
-    private String photo_link;
-    private String partner_gender;
-    private boolean blind_date;
-    private String aboutme;
-    private String ordercomment;
-    private int compatibility;
+    private String extraverse;
+    private String height;
+    private String location;
+    private String zodiac;
+    private String photoReference;
+    private String partnerGender;
+    private String alchoholOpinion;
+    private String smokingOpinion;
+    private String ownNegatives;
+    private String partnerNegatives;
+    private String ownPositives;
+    private boolean blindDate;
+    private String message;
+    private String comment;
 
     public String getName() {
         return name;
@@ -22,20 +33,20 @@ public class Form {
         this.name = name;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getLink() {
-        return link;
+    public String getReference() {
+        return reference;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public String getGender() {
@@ -46,12 +57,12 @@ public class Form {
         this.gender = gender;
     }
 
-    public String getPurpose() {
-        return purpose;
+    public String getAim() {
+        return aim;
     }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
+    public void setAim(String aim) {
+        this.aim = aim;
     }
 
     public String getFaculty() {
@@ -62,51 +73,120 @@ public class Form {
         this.faculty = faculty;
     }
 
-    public String getPhoto_link() {
-        return photo_link;
+    public String getPhotoReference() {
+        return photoReference;
     }
 
-    public void setPhoto_link(String photo_link) {
-        this.photo_link = photo_link;
+    public void setPhotoReference(String photoReference) {
+        this.photoReference = photoReference;
     }
 
-    public String getPartner_gender() {
-        return partner_gender;
+    public String getPartnerGender() {
+        return partnerGender;
     }
 
-    public void setPartner_gender(String partner_gender) {
-        this.partner_gender = partner_gender;
+    public void setPartnerGender(String partnerGender) {
+        this.partnerGender = partnerGender;
     }
 
-    public boolean isBlind_date() {
-        return blind_date;
+    public boolean isBlindDate() {
+        return blindDate;
     }
 
-    public void setBlind_date(boolean blind_date) {
-        this.blind_date = blind_date;
+    public void setBlindDate(boolean blindDate) {
+        this.blindDate = blindDate;
     }
 
-    public String getAboutme() {
-        return aboutme;
+    public String getMessage() {
+        return message;
     }
 
-    public void setAboutme(String aboutme) {
-        this.aboutme = aboutme;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getOrdercomment() {
-        return ordercomment;
+    public String getComment() {
+        return comment;
     }
 
-    public void setOrdercomment(String ordercomment) {
-        this.ordercomment = ordercomment;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public int getCompatibility() {
-        return compatibility;
-    }
+    public String getEmail() {return email;}
 
-    public void setCompatibility(int compatibility) {
-        this.compatibility = compatibility;
+    public void setEmail(String email) {this.email = email;}
+
+    public String getLocation() {return location;}
+
+    public void setLocation(String location) {this.location = location;}
+
+    public String getExtraverse() {return extraverse;}
+
+    public void setExtraverse(String extraverse) {this.extraverse = extraverse;}
+
+    public String getZodiac() {return zodiac;}
+
+    public void setZodiac(String zodiac) {this.zodiac = zodiac;}
+
+    public String getHeight() {return height;}
+
+    public void setHeight(String height) {this.height = height;}
+
+    public String getMusic() {return music;}
+
+    public void setMusic(String music) {this.music = music;}
+
+    public String getHobbies() {return hobbies;}
+
+    public void setHobbies(String hobbies) {this.hobbies = hobbies;}
+
+    public String getAlchoholOpinion() {return alchoholOpinion;}
+
+    public void setAlchoholOpinion(String alchoholOpinion) {this.alchoholOpinion = alchoholOpinion;}
+
+    public String getSmokingOpinion() {return smokingOpinion;}
+
+    public void setSmokingOpinion(String smokingOpinion) {this.smokingOpinion = smokingOpinion;}
+
+    public String getOwnNegatives() {return ownNegatives;}
+
+    public void setOwnNegatives(String ownNegatives) {this.ownNegatives = ownNegatives;}
+
+    public String getPartnerNegatives() {return partnerNegatives;}
+
+    public void setPartnerNegatives(String partnerNegatives) {this.partnerNegatives = partnerNegatives;}
+
+    public String getOwnPositives() {return ownPositives;}
+
+    public void setOwnPositives(String ownPositives) {this.ownPositives = ownPositives;}
+
+    @Override
+    public String toString() {
+        return "Form{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", reference='" + reference + '\'' +
+                ", gender='" + gender + '\'' +
+                ", aim='" + aim + '\'' +
+                ", music='" + music + '\'' +
+                ", hobbies='" + hobbies + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", extraverse='" + extraverse + '\'' +
+                ", height='" + height + '\'' +
+                ", location='" + location + '\'' +
+                ", zodiac='" + zodiac + '\'' +
+                ", photoReference='" + photoReference + '\'' +
+                ", partnerGender='" + partnerGender + '\'' +
+                ", alchoholOpinion='" + alchoholOpinion + '\'' +
+                ", smokingOpinion='" + smokingOpinion + '\'' +
+                ", ownNegatives='" + ownNegatives + '\'' +
+                ", partnerNegatives='" + partnerNegatives + '\'' +
+                ", ownPositives='" + ownPositives + '\'' +
+                ", blindDate=" + blindDate +
+                ", message='" + message + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }

@@ -13,5 +13,22 @@ public enum Zodiac {
     STRELEC,
     KOZEROG,
     VODOLEY,
-    RYBY
+    RYBY;
+    public static String getViewValue(Zodiac zodiac) {
+        return switch (zodiac) {
+            case OVEN -> "Овен";
+            case TELEC -> "Телец";
+            case BLIZNETS -> "Близнец";
+            case RAK -> "Рак";
+            case LEV -> "Лев";
+            case DEVA -> "Дева";
+            case VESY -> "Весы";
+            case SCORPION -> "Скорпион";
+            case ZMEENOSEC -> "Змееносец";
+            case STRELEC -> "Стрелец";
+            case KOZEROG -> "Козерог";
+            case VODOLEY -> "Водолей";
+            case RYBY -> "Рыбы";
+        };
+    }
 }

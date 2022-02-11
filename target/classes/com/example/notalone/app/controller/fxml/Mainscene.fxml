@@ -27,7 +27,7 @@
          <menus>
             <Menu fx:id="menu" mnemonicParsing="false" text="Файл">
                <items>
-                  <MenuItem fx:id="openMenuButton" mnemonicParsing="false" onAction="#chooseFile" text="Открыть базу…" />
+                  <MenuItem fx:id="openMenuButton" mnemonicParsing="false" onAction="#openFile" text="Открыть базу…" />
                   <MenuItem fx:id="closeMenuButton" mnemonicParsing="false" onAction="#closeFile" text="Закрыть базу" />
                   <MenuItem fx:id="quitMenuButton" mnemonicParsing="false" onAction="#quit" text="Выйти из приложения" />
                </items>
@@ -43,11 +43,11 @@
                <children>
                   <AnchorPane prefHeight="122.0">
                      <children>
-                        <TextField fx:id="idtextfieid" layoutX="90.0" layoutY="35.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: FFFFFF;">
+                        <TextField fx:id="idtextfieid" layoutX="32.0" layoutY="23.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: FFFFFF;">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
-                        <Button fx:id="findbutton" layoutX="115.0" layoutY="75.0" disable="true" mnemonicParsing="false" onAction="#findbuttonaction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: FF464B; -fx-background-radius: 15px;" text="Показать цель" textFill="WHITE">
+                        <Button fx:id="findbutton" disable="true" layoutX="55.0" layoutY="69.0" mnemonicParsing="false" onAction="#findbuttonaction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: FF464B; -fx-background-radius: 15px;" text="Показать цель" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -55,14 +55,14 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Text fill="#ff464b" layoutX="40.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Text>
                         <Circle fill="#ff464b" layoutX="16.0" layoutY="33.0" radius="4.0" stroke="#ff464b" strokeType="INSIDE" strokeWidth="0.0" />
                         <Circle fill="#ff464b" layoutX="22.0" layoutY="33.0" radius="4.0" stroke="#ff464b" strokeType="INSIDE" strokeWidth="0.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff464b" height="9.0" layoutX="14.5" layoutY="31.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
+                        <Text fill="#ff464b" layoutX="21.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер строки">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="122.0">
@@ -91,7 +91,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="122.0">
                      <children>
-                        <Button fx:id="applybutton" layoutX="58.0" layoutY="83.0" disable="true" mnemonicParsing="false" onAction="#showRightProfile" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
+                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="83.0" mnemonicParsing="false" onAction="#showRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>

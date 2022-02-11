@@ -31,7 +31,6 @@ public class XlsParser {
                     first = false;
                     continue;
                 }
-                boolean ignored = false;
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
                     switch (cell.getCellType()) {
@@ -41,11 +40,9 @@ public class XlsParser {
                         case NUMERIC:
                             row.add(String.valueOf(cell.getNumericCellValue()));
                             break;
-                        default:
-                            if (cell.getCellType() == CellType.BLANK) ignored = true;
                     }
                 }
-                if(!ignored) table.add(row);
+                table.add(row);
             }
         } catch (Exception e) {
             e.printStackTrace();

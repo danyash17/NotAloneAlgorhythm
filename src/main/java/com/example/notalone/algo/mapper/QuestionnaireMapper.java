@@ -1,14 +1,15 @@
-package com.example.notalone.algo.parser;
+package com.example.notalone.algo.mapper;
 
 import com.example.notalone.algo.entity.questionnaire.Questionnaire;
 import com.example.notalone.algo.entity.questionnaire.question.*;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class QuestionnaireParser {
+public class QuestionnaireMapper {
     private static final Map<Integer, Class> questionMap = new TreeMap<Integer, Class>() {{
         put(1, EmailQuestion.class);
         put(2, NameQuestion.class);
@@ -31,20 +32,25 @@ public class QuestionnaireParser {
         put(19,MessageQuestion.class);
         put(20,BlindDateQuestion.class);
         put(21,CommentQuestion.class);
+        put(22, PhotoReferenceQuestion.class);
     }};
 
-    public Questionnaire parseForm(List<String> list){
-        Questionnaire questionnaire = new Questionnaire();
-        for(int i=1;i<=21;i++) {
-        Class aClass = questionMap.get(i);
-        Question question = null;
-            try {
-                question =(Question) aClass.getConstructor(String.class).newInstance(list.get(i));
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                e.printStackTrace();
+    public List<Questionnaire> map(List<List<String>> table){
+        List<Questionnaire> questionnaires = new ArrayList<>();
+        for (List<String> list:table) {
+            Questionnaire questionnaire = new Questionnaire();
+            for (int i = 1; i <= 22; i++) {
+                Class aClass = questionMap.get(i);
+                Question question = null;
+                try {
+                    question = (Question) aClass.getConstructor(String.class).newInstance(list.get(i));
+                } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+                questionnaire.getQuestions().add(question);
             }
-        questionnaire.getQuestions().add(question);
+            questionnaires.add(questionnaire);
         }
-        return questionnaire;
+        return questionnaires;
     }
 }

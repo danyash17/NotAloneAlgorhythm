@@ -19,5 +19,30 @@ public enum Faculty {
     BUSINESS,
     INTERNATIONAL_RELATIONSHIPS,
     LYCEUM,
-    NON_BSU
+    MSEU,
+    NON_BSU;
+    public static String getViewValue(Faculty faculty){
+        return switch (faculty) {
+            case BIO -> "Биофак";
+            case MILITARY -> "Военный";
+            case GEO -> "Геофак";
+            case JOURNALISTIC -> "Журфак";
+            case HISTORICAL -> "Истфак";
+            case MECHMAT -> "Мехмат";
+            case FPM -> "ФПМИ";
+            case RPACT -> "Радиофизики и компьютерных технологий ";
+            case FSC -> "ФСК";
+            case PHILOSOFIC -> "ФФСН";
+            case PHYSICAL -> "Физфак";
+            case PHILOLOGICAL -> "Филфак";
+            case CHEMICAL -> "Химфак";
+            case ECONOMIC -> "Экономфак";
+            case LAW -> "Юрфак";
+            case BUSINESS -> "ИБ";
+            case INTERNATIONAL_RELATIONSHIPS -> "ФМО";
+            case LYCEUM -> "Лицей БГУ";
+            case MSEU -> "Сахарова";
+            case NON_BSU -> "Не из БГУ";
+        };
+    }
 }

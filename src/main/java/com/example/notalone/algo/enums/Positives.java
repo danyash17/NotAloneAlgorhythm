@@ -20,5 +20,29 @@ public enum Positives {
     INICIATIVNOST,
     PUNKTUALNOST,
     SKROMNOST,
-    UVERENNOST
+    UVERENNOST;
+    public static String getViewValue(Positives positives) {
+        return switch (positives) {
+            case ISKRENNOST -> " Искренность ";
+            case STRESSOUSTOUCHIVOST -> " Стрессоустойчивость ";
+            case ORGANIZOVANNOST -> " Организованность ";
+            case VNIMATELNOST -> " Внимательность ";
+            case SCHEDROST -> " Щедрость ";
+            case TRUDOLUBIE -> " Трудолюбие ";
+            case ZHIZNERADOSTNOST -> " Жизнерадостность ";
+            case SPOSOBNOST_BLAGODARIT -> " Способность благодарить ";
+            case ZDRAVOMYSLIE -> " Здравомыслие ";
+            case TERPELIVOST -> " Терпеливость ";
+            case BEREZHLIVOST -> " Бережливость ";
+            case MUDROST -> " Мудрость ";
+            case OTZUVCHIVOST -> " Отзывчивость ";
+            case SMELOST -> " Смелость ";
+            case CREATIVNOST -> " Креативность ";
+            case CHUVSTVO_YOUMORA -> " Чувство юмора ";
+            case INICIATIVNOST -> " Инициативность ";
+            case PUNKTUALNOST -> " Пунктуальность ";
+            case SKROMNOST -> " Скромность ";
+            case UVERENNOST -> " Уверенность ";
+        };
+    }
 }

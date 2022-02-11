@@ -3,6 +3,8 @@ module com.example.notalone {
     requires javafx.fxml;
     requires org.apache.poi.poi;
     requires org.apache.poi.ooxml;
+    requires java.datatransfer;
+    requires java.desktop;
 
 
     opens com.example.notalone to javafx.fxml;

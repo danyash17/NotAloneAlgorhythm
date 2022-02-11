@@ -65,6 +65,9 @@ public class FacultyQuestion implements Question {
             case "Лицей БГУ":
                 faculty = Faculty.LYCEUM;
                 break;
+            case "МГЭИ им.А.Д.Сахарово":
+                faculty = Faculty.MSEU;
+                break;
             case "Не БГУ":
                 faculty = Faculty.NON_BSU;
                 break;

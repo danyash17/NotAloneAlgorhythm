@@ -11,11 +11,13 @@ public class PartnerGenderQuestion implements Question {
         put(Gender.MALE, 0);
         put(Gender.FEMALE, 1);
         put(Gender.NONBINARY, 2);
+        put(Gender.ANYONE, 3);
     }};
     public static final int[][] matrix = {
-            {10, 0, 0},
-            {0, 10, 0},
-            {0, 0, 10}
+            {10, 0, 0, 10},
+            {0, 10, 0, 10},
+            {0, 0, 10, 10},
+            {10, 10, 10, 10},
     };
 
     public PartnerGenderQuestion(String string) {
@@ -29,6 +31,9 @@ public class PartnerGenderQuestion implements Question {
                 break;
             case "Женщина":
                 gender = Gender.FEMALE;
+                break;
+            case "Небинарный":
+                gender = Gender.NONBINARY;
                 break;
             case "Без разницы":
                 gender = Gender.ANYONE;

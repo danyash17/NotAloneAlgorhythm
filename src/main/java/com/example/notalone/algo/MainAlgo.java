@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-import com.example.notalone.algo.factory.RelevantsFactory;
 import com.example.notalone.algo.comparator.QuestionComparator;
-import com.example.notalone.algo.entity.questionnaire.Questionnaire;
+import com.example.notalone.algo.entity.Form;
 import com.example.notalone.algo.entity.Pair;
+import com.example.notalone.algo.entity.questionnaire.Questionnaire;
 import com.example.notalone.algo.entity.questionnaire.question.Question;
-import com.example.notalone.algo.parser.QuestionnaireParser;
+import com.example.notalone.algo.factory.RelevantsFactory;
+import com.example.notalone.algo.mapper.FormMapper;
+import com.example.notalone.algo.mapper.QuestionnaireMapper;
 import com.example.notalone.algo.parser.XlsParser;
 
 public class MainAlgo {
@@ -24,11 +26,9 @@ public class MainAlgo {
         }
         System.out.println("\nParsing was successful\n\n\n");
         List<Questionnaire> questionnaires = new ArrayList<>();
-        QuestionnaireParser questionnaireParser = new QuestionnaireParser();
+        QuestionnaireMapper questionnaireMapper = new QuestionnaireMapper();
         QuestionComparator questionComparator = new QuestionComparator();
-        for (List<String> row : table) {
-            questionnaires.add(questionnaireParser.parseForm(row));
-        }
+        questionnaires = questionnaireMapper.map(table);
         int testId = 2;
         Questionnaire testQuestionnaire = questionnaires.get(testId-2);
         List<Question> testFormQuestions = testQuestionnaire.getQuestions();
@@ -58,16 +58,11 @@ public class MainAlgo {
 
         ///////////////////////////
 
-        String ANSI_GREEN = "\u001B[32m";
-        String ANSI_BLUE = "\u001B[34m\t";
-        String ANSI_WHITE = "\u001B[37m";
-        System.out.println(ANSI_BLUE + "\t\tSmart algorhythm NotAlone 1.0");
-        System.out.println(ANSI_GREEN + "\t\tBest couples for " + testQuestionnaire.getQuestions().get(1) + "\n" + ANSI_WHITE);
-        RelevantsFactory relevantsFactory = new RelevantsFactory();
-        List<Pair> pairs = relevantsFactory.getRelevants(testId-2, questionnaires);
-        for (Pair pair:pairs){
-            System.out.println("\t" + pair.getCurrent().getQuestions().get(1) + "[" + (questionnaires.indexOf(pair.getCurrent())+2) + "]" + " — " + pair.getRelevance() + " points");
-        }
+//        String ANSI_GREEN = "\u001B[32m";
+//        String ANSI_BLUE = "\u001B[34m\t";
+//        String ANSI_WHITE = "\u001B[37m";
+//        System.out.println(ANSI_BLUE + "\t\tSmart algorhythm NotAlone 1.0");
+//        System.out.println(ANSI_GREEN + "\t\tBest couples for " + testQuestionnaire.getQuestions().get(1) + "\n" + ANSI_WHITE);
     }
 }
 

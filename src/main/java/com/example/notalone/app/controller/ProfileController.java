@@ -7,14 +7,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import java.awt.*;
+
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class ProfileController {
+    @FXML
+    public Hyperlink link;
 
     @FXML
     private Label aboutmetext;
@@ -24,9 +30,6 @@ public class ProfileController {
 
     @FXML
     private Label ordercommenttext;
-
-    @FXML
-    private ImageView profileimage;
 
     @FXML
     private Button showtheformbutton;
@@ -49,11 +52,17 @@ public class ProfileController {
 
     public void setData(Form form){
         this.form = form;
-        aboutmetext.setText("Я ищу "+ form.getPurpose()+" "+ form.getAboutme());
+        aboutmetext.setText("Цель: ["+ form.getAim()+"] \n"+ form.getMessage());
         nameandagetext.setText(form.getName()+", "+ form.getFaculty());
-        Image image =new Image(getClass().getResourceAsStream(form.getPhoto_link()));// 100,100,false,false
-        profileimage.setImage(image);
-        ordercommenttext.setText(form.getOrdercomment());
+        link.setText(form.getPhotoReference());
+        ordercommenttext.setText(form.getComment());
     }
 
+    public void openLink(ActionEvent actionEvent) {
+        try {
+            Desktop.getDesktop().browse(new URI(link.getText()));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+    }
 }

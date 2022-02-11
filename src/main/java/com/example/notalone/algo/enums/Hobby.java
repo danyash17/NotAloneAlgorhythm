@@ -17,5 +17,26 @@ public enum Hobby {
     PROGRAMMING,
     SINGING,
     MUSIC_INSTRUMENTS,
-    TATOO
+    TATOO;
+    public static String getViewValue(Hobby hobby){
+        return switch (hobby) {
+            case TOURISM -> " Туризм ";
+            case FISHING -> " Рыбалка ";
+            case DANCE -> " Танцы ";
+            case THEATRE -> " Театр ";
+            case COLLECT -> " Коллекционирование ";
+            case GARDENING -> " Садоводство ";
+            case COMPUTER_GAMES -> " Компьютерные игры ";
+            case SPORT -> " Спорт ";
+            case PAINTING -> " Рисование ";
+            case COOKING -> " Кулинария ";
+            case CRAFTS -> " Рукоделие ";
+            case CHESS -> " Шахматы ";
+            case TABLE_GAMES -> " Настольные игры ";
+            case PROGRAMMING -> " Программирование ";
+            case SINGING -> " Пение ";
+            case MUSIC_INSTRUMENTS -> " Музыкальные иструменты ";
+            case TATOO -> " Тату ";
+        };
+    }
 }
