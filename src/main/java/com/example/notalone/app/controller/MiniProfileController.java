@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class MiniProfileController{
+public class MiniProfileController {
+    @FXML
+    public Label orderNumber;
 
     @FXML
-    private Label compatibilitytext;
+    private Label points;
 
     @FXML
     private Label facultetext;
@@ -28,16 +30,17 @@ public class MiniProfileController{
 
     private Form form;
 
-    public void setData(Form form, ProfileSelection profile_selection, int compability, int id){
+    public void setData(Form form, ProfileSelection profile_selection, int compability, int id, int orderNum) {
         this.form = form;
-        this.profile_selection=profile_selection;
-        compatibilitytext.setText(String.valueOf(compability));
+        this.profile_selection = profile_selection;
+        points.setText(String.valueOf(compability));
         nametext.setText(form.getName());
-        idtext.setText(" "+ form.getId());
+        orderNumber.setText(String.valueOf(orderNum));
+        idtext.setText(" " + form.getId());
         facultetext.setText(form.getFaculty());
         //
-        String path = form.getGender().equals("Мужчина")? "/man.png" : "/woman.png";
-        Image image =new Image(getClass().getResourceAsStream(path));
+        String path = form.getGender().equals("Мужчина") ? "/man.png" : "/woman.png";
+        Image image = new Image(getClass().getResourceAsStream(path));
         profileimage.setImage(image);
         profileimage.setPickOnBounds(true);
 

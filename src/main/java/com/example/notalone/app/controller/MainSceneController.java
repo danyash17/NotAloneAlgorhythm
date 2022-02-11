@@ -40,8 +40,6 @@ public class MainSceneController implements Initializable {
     @FXML
     public MenuItem quitMenuButton;
     @FXML
-    public MenuItem loadPhotos;
-    @FXML
     private GridPane leftanchorpane;
     @FXML
     private GridPane rightanchorpane;
@@ -119,7 +117,7 @@ public class MainSceneController implements Initializable {
                     AnchorPane anchorPane = fxmlLoader.load();
                     MiniProfileController imageController = fxmlLoader.getController();
                     Form form = formMapper.map(pair.getCurrent());
-                    imageController.setData(form, profileSelection, pair.getRelevance(), form.getId());
+                    imageController.setData(form, profileSelection, pair.getRelevance(), form.getId(), i+1);
                     grid.add(anchorPane, 0, i);
                 }
             }
@@ -168,6 +166,9 @@ public class MainSceneController implements Initializable {
         menu.setStyle("-fx-background-color: #DD371D");
         findbutton.setDisable(true);
         applybutton.setDisable(true);
+        grid.getChildren().clear();
+        leftanchorpane.getChildren().clear();
+        rightanchorpane.getChildren().clear();
     }
 
     public void quit(ActionEvent actionEvent) {

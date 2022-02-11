@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import java.awt.Desktop;
 
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -27,6 +28,8 @@ import java.net.URISyntaxException;
 public class ProfileController {
     @FXML
     public ImageView imageView;
+    @FXML
+    public Button showfullformbutton;
 
     @FXML
     private Label aboutmetext;
@@ -36,9 +39,6 @@ public class ProfileController {
 
     @FXML
     private Label ordercommenttext;
-
-    @FXML
-    private Button showtheformbutton;
 
     private Form form;
 
@@ -60,8 +60,8 @@ public class ProfileController {
         this.form = form;
         aboutmetext.setText("Цель: [" + form.getAim() + "] \n" + form.getMessage());
         nameandagetext.setText(form.getName() + ", " + form.getFaculty());
-        String path = form.getGender().equals("Мужчина")? "/man.png" : "/woman.png";
-        Image image =new Image(getClass().getResourceAsStream(path));
+        String path = form.getGender().equals("Мужчина") ? "/man.png" : "/woman.png";
+        Image image = new Image(getClass().getResourceAsStream(path));
         imageView.setImage(image);
         imageView.setPickOnBounds(true);
         imageView.setOnMouseClicked(e -> {
@@ -76,5 +76,19 @@ public class ProfileController {
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showfullform(ActionEvent actionEvent) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("fxml/FullForm.fxml"));
+        Parent root = fxmlLoader.load();
+        FormController imageController = fxmlLoader.getController();
+        imageController.setData(form);
+        window.getIcons().add(new Image(getClass().getResourceAsStream("/give-love.png")));
+        window.setTitle("Полная анкета");
+        window.setScene(new Scene(root, 519, 742));
+        window.show();
+        window.setResizable(false);
     }
 }

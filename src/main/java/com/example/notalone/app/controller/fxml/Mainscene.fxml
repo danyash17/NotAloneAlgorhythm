@@ -25,7 +25,7 @@
    <children>
       <MenuBar layoutX="10.0" layoutY="10.0" style="-fx-background-color: FFF3E8;">
          <menus>
-            <Menu fx:id="menu" mnemonicParsing="false" text="Файл" >
+            <Menu fx:id="menu" mnemonicParsing="false" text="Файл">
                <items>
                   <MenuItem fx:id="openMenuButton" mnemonicParsing="false" onAction="#openFile" text="Открыть базу…" />
                   <MenuItem fx:id="closeMenuButton" mnemonicParsing="false" onAction="#closeFile" text="Закрыть базу" />
@@ -47,7 +47,7 @@
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor></TextField>
-                        <Button fx:id="findbutton" disable="true" layoutX="55.0" layoutY="69.0" mnemonicParsing="false" onAction="#findbuttonaction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: FF464B; -fx-background-radius: 15px;" text="Показать цель" textFill="WHITE">
+                        <Button fx:id="findbutton" disable="true" layoutX="57.0" layoutY="77.0" mnemonicParsing="false" onAction="#findbuttonaction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: FF464B; -fx-background-radius: 15px;" text="Выбрать цель" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -67,23 +67,19 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="122.0">
                      <children>
-                        <RadioButton fx:id="incompatiblegoalsrbutton" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" text="Показать несовместимые цели" textFill="#dd48e2">
+                        <RadioButton fx:id="samesexrbutton" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" text="Одного пола" textFill="#dd48e2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></RadioButton>
-                        <RadioButton fx:id="samesexrbutton" layoutX="22.0" layoutY="53.0" mnemonicParsing="false" text="Одного пола" textFill="#dd48e2">
+                        <RadioButton fx:id="difsexbutton" layoutX="133.0" layoutY="14.0" mnemonicParsing="false" text="Разного пола" textFill="#dd48e2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></RadioButton>
-                        <RadioButton fx:id="difsexbutton" layoutX="144.0" layoutY="53.0" mnemonicParsing="false" text="Разного пола" textFill="#dd48e2">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></RadioButton>
-                        <CheckBox fx:id="friendshipcheck" layoutX="24.0" layoutY="85.0" mnemonicParsing="false" text="Дружба" textFill="#dd48e2">
+                        <CheckBox fx:id="friendshipcheck" layoutX="13.0" layoutY="46.0" mnemonicParsing="false" text="Дружба" textFill="#dd48e2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></CheckBox>
-                        <CheckBox fx:id="relationshipcheck" layoutX="144.0" layoutY="85.0" mnemonicParsing="false" text="Отношения" textFill="#dd48e2">
+                        <CheckBox fx:id="relationshipcheck" layoutX="133.0" layoutY="46.0" mnemonicParsing="false" text="Отношения" textFill="#dd48e2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></CheckBox>
@@ -91,30 +87,30 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="122.0">
                      <children>
-                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="83.0" mnemonicParsing="false" onAction="#showRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
+                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="77.0" mnemonicParsing="false" onAction="#showRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <RadioButton fx:id="blinddatebutton" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" text="Готов на свидание вслепую" textFill="#dd48e2">
+                        <RadioButton fx:id="blinddatebutton" layoutX="35.0" layoutY="14.0" mnemonicParsing="false" text="Готов на свидание вслепую" textFill="#dd48e2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></RadioButton>
-                        <TextField fx:id="starttext" layoutX="58.0" layoutY="49.0" prefHeight="25.0" prefWidth="35.0" promptText="0" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="0">
+                        <TextField fx:id="starttext" layoutX="53.0" layoutY="42.0" prefHeight="25.0" prefWidth="35.0" promptText="0" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="0">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <TextField fx:id="endtext" layoutX="136.0" layoutY="49.0" prefHeight="25.0" prefWidth="44.0" promptText="100" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="100">
+                        <TextField fx:id="endtext" layoutX="131.0" layoutY="42.0" prefHeight="25.0" prefWidth="44.0" promptText="100" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="100">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Text fill="#dd48e2" layoutX="39.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="с">
+                        <Text fill="#dd48e2" layoutX="34.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="с">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <Text fill="#dd48e2" layoutX="107.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="до">
+                        <Text fill="#dd48e2" layoutX="102.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="до">
                            <font>
                               <Font size="14.0" />
                            </font>

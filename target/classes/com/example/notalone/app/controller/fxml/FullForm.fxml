@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="519.0" style="-fx-background-color: FFF3E8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.notalone.app.controller.FormController">
+   <children>
+      <Text fill="#ca880b" layoutX="19.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Коментарий:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="19.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="О себе:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label fx:id="nameText" alignment="CENTER" layoutX="133.0" layoutY="14.0" prefHeight="28.0" prefWidth="256.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <ScrollPane hbarPolicy="NEVER" layoutX="13.0" layoutY="535.0" prefHeight="72.0" prefWidth="434.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="aboutMeText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="orderComment" hbarPolicy="NEVER" layoutX="13.0" layoutY="650.0" prefHeight="72.0" prefWidth="434.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="commentText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="#ca880b" layoutX="142.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="335.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пол партнера:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="142.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цель участия:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="14.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Место проживания:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="16.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Факультет:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="244.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зодиак:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="245.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Рост:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="15.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пол:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="244.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Темперамент:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="16.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Хобби:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="11.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Музыка:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="16.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Отрицательные черты:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="18.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Не потерпит:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="14.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Положительные черты:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#ca880b" layoutX="16.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Свидание вслепую:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ScrollPane fx:id="hobbyScrollPane" hbarPolicy="NEVER" layoutX="73.0" layoutY="220.0" prefHeight="36.0" prefWidth="434.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="hobbyText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="ownNegativesScrollPane" hbarPolicy="NEVER" layoutX="165.0" layoutY="314.0" prefHeight="36.0" prefWidth="346.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="ownNegativesText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="ownPositivesScrollPane" hbarPolicy="NEVER" layoutX="165.0" layoutY="353.0" prefHeight="36.0" prefWidth="346.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="ownPositivesText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="musicScrollPane" hbarPolicy="NEVER" layoutX="73.0" layoutY="269.0" prefHeight="36.0" prefWidth="434.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="musicText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="partnerNegativesScrollPane" hbarPolicy="NEVER" layoutX="115.0" layoutY="400.0" prefHeight="36.0" prefWidth="394.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="partnerNegativesText" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="ownGenderText" alignment="CENTER" layoutX="50.0" layoutY="125.0" prefHeight="28.0" prefWidth="185.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="locationText" alignment="CENTER" layoutX="143.0" layoutY="152.0" prefHeight="28.0" prefWidth="100.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="facultyText" alignment="CENTER" layoutX="85.0" layoutY="181.0" prefHeight="28.0" prefWidth="151.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="zodiacText" alignment="CENTER" layoutX="308.0" layoutY="125.0" prefHeight="28.0" prefWidth="185.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="heightText" alignment="CENTER" layoutX="308.0" layoutY="153.0" prefHeight="28.0" prefWidth="185.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="extraverseText" alignment="CENTER" layoutX="338.0" layoutY="181.0" prefHeight="28.0" prefWidth="169.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="blindDateText" alignment="CENTER" layoutX="152.0" layoutY="462.0" prefHeight="28.0" prefWidth="185.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="mailText" alignment="CENTER" layoutX="196.0" layoutY="50.0" prefHeight="28.0" prefWidth="185.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="aimText" alignment="CENTER" layoutX="240.0" layoutY="77.0" prefHeight="28.0" prefWidth="92.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="partnerGenderText" alignment="CENTER" layoutX="427.0" layoutY="76.0" prefHeight="28.0" prefWidth="92.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
