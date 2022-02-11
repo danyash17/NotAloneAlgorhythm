@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="300.0" style="-fx-background-color: FFF3E8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.notalone.app.controller.ProfileController">
+   <children>
+      <Button fx:id="showfullformbutton" layoutX="60.0" layoutY="388.0" mnemonicParsing="false" onAction="#showfullform" prefHeight="28.0" prefWidth="180.0" style="-fx-background-radius: 10px; -fx-background-color: FF464B;" text="Показать полную анкету" textFill="WHITE" />
+      <Text fill="#da9728" layoutX="33.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Коментарий:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#da9728" layoutX="30.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="О себе:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label fx:id="nameandagetext" alignment="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="28.0" prefWidth="256.0" textFill="#ff8434" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="186.0" prefHeight="100.0" prefWidth="240.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="aboutmetext" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="302.0" prefHeight="86.0" prefWidth="240.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+         <content>
+            <Label fx:id="ordercommenttext" alignment="BASELINE_LEFT" prefWidth="240.0" textFill="#c43ff8" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="100.0" layoutX="103.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
