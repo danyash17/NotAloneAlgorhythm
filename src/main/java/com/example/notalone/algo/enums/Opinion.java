@@ -5,7 +5,7 @@ public enum Opinion {
     NEGATIVE,
     NEUTRAL;
 
-    public static String getViewValue(Opinion opinion) {
+    public static String getStringValue(Opinion opinion) {
         return switch (opinion) {
             case POSITIVE -> "Положительное";
             case NEGATIVE -> "Отрицательное";

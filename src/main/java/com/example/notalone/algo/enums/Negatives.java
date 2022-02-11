@@ -16,7 +16,7 @@ public enum Negatives {
     LEN,
     PESSIMISM,
     NAGLOST;
-    public static String getViewValue(Negatives negatives){
+    public static String getStringValue(Negatives negatives){
         return switch (negatives) {
             case GORDOST -> " Гордость ";
             case EGOISM -> " Эгоизм ";

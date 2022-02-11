@@ -5,7 +5,7 @@ public enum Gender{
     FEMALE,
     NONBINARY,
     ANYONE;
-    public static String getViewValue(Gender gender){
+    public static String getStringValue(Gender gender){
         return switch (gender) {
             case MALE -> "Мужчина";
             case FEMALE -> "Женщина";

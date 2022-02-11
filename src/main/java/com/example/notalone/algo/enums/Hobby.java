@@ -18,7 +18,7 @@ public enum Hobby {
     SINGING,
     MUSIC_INSTRUMENTS,
     TATOO;
-    public static String getViewValue(Hobby hobby){
+    public static String getStringValue(Hobby hobby){
         return switch (hobby) {
             case TOURISM -> " Туризм ";
             case FISHING -> " Рыбалка ";

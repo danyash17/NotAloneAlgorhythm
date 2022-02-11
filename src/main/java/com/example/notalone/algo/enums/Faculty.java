@@ -21,7 +21,7 @@ public enum Faculty {
     LYCEUM,
     MSEU,
     NON_BSU;
-    public static String getViewValue(Faculty faculty){
+    public static String getStringValue(Faculty faculty){
         return switch (faculty) {
             case BIO -> "Биофак";
             case MILITARY -> "Военный";

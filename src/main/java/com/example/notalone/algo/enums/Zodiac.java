@@ -14,7 +14,7 @@ public enum Zodiac {
     KOZEROG,
     VODOLEY,
     RYBY;
-    public static String getViewValue(Zodiac zodiac) {
+    public static String getStringValue(Zodiac zodiac) {
         return switch (zodiac) {
             case OVEN -> "Овен";
             case TELEC -> "Телец";

@@ -4,6 +4,8 @@ import com.example.notalone.algo.entity.Form;
 import com.example.notalone.algo.entity.Pair;
 import com.example.notalone.algo.entity.questionnaire.Questionnaire;
 import com.example.notalone.algo.entity.questionnaire.question.Question;
+import com.example.notalone.algo.enums.Aim;
+import com.example.notalone.algo.enums.Gender;
 import com.example.notalone.algo.factory.RelevantsFactory;
 import com.example.notalone.algo.mapper.FormMapper;
 import com.example.notalone.algo.mapper.QuestionnaireMapper;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -99,27 +102,48 @@ public class MainSceneController implements Initializable {
         }
     }
 
-    public boolean filter() {
-        return true;
-    }// еще не готово
+    public List<Pair> filter(List<Pair> pairs) {
+        boolean relationships = relationshipcheck.isSelected();
+        boolean friendship = friendshipcheck.isSelected();
+        Aim selectedAim = relationships ? friendship ? Aim.ANYTHING : Aim.RELATIONSHIPS : friendship ? Aim.FRIENDSHIP : null;
+        boolean sameSex = samesexrbutton.isSelected();
+        boolean diffSex = difsexbutton.isSelected();
+        boolean blindDate = blinddatebutton.isSelected();
+        for (Iterator<Pair> iterator = pairs.iterator(); iterator.hasNext();) {
+            boolean delete = false;
+            Pair pair = iterator.next();
+            Form current = formMapper.map(pair.getCurrent());
+            Form target = formMapper.map(pair.getTarget());
+            if (selectedAim != null && !selectedAim.equals(Aim.ANYTHING)) {
+                Aim aim = Aim.getAimValue(current.getAim());
+                delete = !aim.equals(selectedAim);
+            }
+            if (sameSex || diffSex) {
+                if(sameSex) delete = !current.getGender().equals(target.getGender());
+                if(diffSex) delete = current.getGender().equals(target.getGender());
+            }
+            if (blindDate) delete = !current.isBlindDate();
+            if(delete) iterator.remove();
+        }
+        return pairs;
+    }
 
     @FXML
     void showRelevants(ActionEvent event) {
         RelevantsFactory factory = new RelevantsFactory();
         List<Pair> pairs = factory.getRelevants(Integer.parseInt(idtextfieid.getText()) - 2, session.getQuestionnaires());
+        pairs = filter(pairs);
         grid.getChildren().clear();
         try {
             for (int i = Integer.parseInt(starttext.getText()); i < pairs.size() && i < Integer.parseInt(endtext.getText()); i++) {
-                if (filter()) {
-                    Pair pair = pairs.get(i);
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("fxml/MiniProfile.fxml"));
-                    AnchorPane anchorPane = fxmlLoader.load();
-                    MiniProfileController imageController = fxmlLoader.getController();
-                    Form form = formMapper.map(pair.getCurrent());
-                    imageController.setData(form, profileSelection, pair.getRelevance(), form.getId(), i+1);
-                    grid.add(anchorPane, 0, i);
-                }
+                Pair pair = pairs.get(i);
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("fxml/MiniProfile.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                MiniProfileController imageController = fxmlLoader.getController();
+                Form form = formMapper.map(pair.getCurrent());
+                imageController.setData(form, profileSelection, pair.getRelevance(), form.getId(), i + 1);
+                grid.add(anchorPane, 0, i);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ public enum Extraverse {
     EXTRAVERT,
     INTROVERT,
     AMBIVERT;
-    public static String getViewValue(Extraverse extraverse){
+    public static String getStringValue(Extraverse extraverse){
         return switch (extraverse) {
             case EXTRAVERT -> "Экстраверт";
             case INTROVERT -> "Интроверт";

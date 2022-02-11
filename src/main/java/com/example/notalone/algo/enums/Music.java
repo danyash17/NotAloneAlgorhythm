@@ -15,7 +15,7 @@ public enum Music {
     RITMNBLUES,
     AMBIENT,
     COUNTRY;
-    public static String getViewValue(Music music){
+    public static String getStringValue(Music music){
         return switch (music) {
             case POP -> " Поп ";
             case ROCK -> " Рок ";

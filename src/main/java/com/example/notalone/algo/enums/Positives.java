@@ -21,7 +21,7 @@ public enum Positives {
     PUNKTUALNOST,
     SKROMNOST,
     UVERENNOST;
-    public static String getViewValue(Positives positives) {
+    public static String getStringValue(Positives positives) {
         return switch (positives) {
             case ISKRENNOST -> " Искренность ";
             case STRESSOUSTOUCHIVOST -> " Стрессоустойчивость ";

@@ -22,28 +22,28 @@ public class FormMapper {
         form.setName(nameQuestion.getName());
         //
         AimQuestion aimQuestion = (AimQuestion) questions.get(3);
-        form.setAim(Aim.getViewValue(aimQuestion.getAim()));
+        form.setAim(Aim.getStringValue(aimQuestion.getAim()));
         //
         ReferenceQuestion referenceQuestion = (ReferenceQuestion) questions.get(4);
         form.setReference(referenceQuestion.getReference());
         //
         OwnGenderQuestion ownGenderQuestion = (OwnGenderQuestion) questions.get(5);
-        form.setGender(Gender.getViewValue(ownGenderQuestion.getGender()));
+        form.setGender(Gender.getStringValue(ownGenderQuestion.getGender()));
         //
         PartnerGenderQuestion partnerGenderQuestion = (PartnerGenderQuestion) questions.get(6);
-        form.setPartnerGender(Gender.getViewValue(partnerGenderQuestion.getGender()));
+        form.setPartnerGender(Gender.getStringValue(partnerGenderQuestion.getGender()));
         //
         FacultyQuestion facultyQuestion = (FacultyQuestion) questions.get(7);
-        form.setFaculty(Faculty.getViewValue(facultyQuestion.getFaculty()));
+        form.setFaculty(Faculty.getStringValue(facultyQuestion.getFaculty()));
         //
         LocationQuestion locationQuestion = (LocationQuestion) questions.get(8);
-        form.setLocation(Location.getViewValue(locationQuestion.getLocation()));
+        form.setLocation(Location.getStringValue(locationQuestion.getLocation()));
         //
         ExtraverseQuestion extraverseQuestion = (ExtraverseQuestion) questions.get(9);
-        form.setExtraverse(Extraverse.getViewValue(extraverseQuestion.getExtraverse()));
+        form.setExtraverse(Extraverse.getStringValue(extraverseQuestion.getExtraverse()));
         //
         ZodiacQuestion zodiacQuestion = (ZodiacQuestion) questions.get(10);
-        form.setZodiac(Zodiac.getViewValue(zodiacQuestion.getZodiac()));
+        form.setZodiac(Zodiac.getStringValue(zodiacQuestion.getZodiac()));
         //
         HeightQuestion heightQuestion = (HeightQuestion) questions.get(11);
         form.setHeight(heightQuestion.getHeight());
@@ -51,41 +51,41 @@ public class FormMapper {
         MusicQuestion musicQuestion = (MusicQuestion) questions.get(12);
         StringBuilder stringBuilder = new StringBuilder();
         for (Music music : musicQuestion.getMusic()) {
-            stringBuilder.append(Music.getViewValue(music));
+            stringBuilder.append(Music.getStringValue(music));
         }
         form.setMusic(String.valueOf(stringBuilder));
         //
         HobbyQuestion hobbyQuestion = (HobbyQuestion) questions.get(13);
         stringBuilder = new StringBuilder();
         for (Hobby hobby : hobbyQuestion.getHobby()) {
-            stringBuilder.append(Hobby.getViewValue(hobby));
+            stringBuilder.append(Hobby.getStringValue(hobby));
         }
         form.setHobbies(String.valueOf(stringBuilder));
         //
         AlcoholQuestion alcoholQuestion = (AlcoholQuestion) questions.get(14);
-        form.setAlchoholOpinion(Opinion.getViewValue(alcoholQuestion.getOpinion()));
+        form.setAlchoholOpinion(Opinion.getStringValue(alcoholQuestion.getOpinion()));
         //
         SmokingQuestion smokingQuestion = (SmokingQuestion) questions.get(15);
-        form.setSmokingOpinion(Opinion.getViewValue(smokingQuestion.getOpinion()));
+        form.setSmokingOpinion(Opinion.getStringValue(smokingQuestion.getOpinion()));
         //
         OwnNegativesQuestion ownNegativesQuestion = (OwnNegativesQuestion) questions.get(16);
         stringBuilder = new StringBuilder();
         for (Negatives negative : ownNegativesQuestion.getNegatives()) {
-            stringBuilder.append(Negatives.getViewValue(negative));
+            stringBuilder.append(Negatives.getStringValue(negative));
         }
         form.setOwnNegatives(String.valueOf(stringBuilder));
         //
         PartnerNegativesQuestion partnerNegativesQuestion = (PartnerNegativesQuestion) questions.get(17);
         stringBuilder = new StringBuilder();
         for (Negatives negative : partnerNegativesQuestion.getNegatives()) {
-            stringBuilder.append(Negatives.getViewValue(negative));
+            stringBuilder.append(Negatives.getStringValue(negative));
         }
         form.setPartnerNegatives(String.valueOf(stringBuilder));
         //
         OwnPositivesQuestion ownPositivesQuestion = (OwnPositivesQuestion) questions.get(18);
         stringBuilder = new StringBuilder();
         for (Positives positive : ownPositivesQuestion.getPositives()) {
-            stringBuilder.append(Positives.getViewValue(positive));
+            stringBuilder.append(Positives.getStringValue(positive));
         }
         form.setOwnPositives(String.valueOf(stringBuilder));
         //
