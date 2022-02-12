@@ -21,28 +21,50 @@ public enum Positives {
     PUNKTUALNOST,
     SKROMNOST,
     UVERENNOST;
+
     public static String getStringValue(Positives positives) {
-        return switch (positives) {
-            case ISKRENNOST -> " Искренность ";
-            case STRESSOUSTOUCHIVOST -> " Стрессоустойчивость ";
-            case ORGANIZOVANNOST -> " Организованность ";
-            case VNIMATELNOST -> " Внимательность ";
-            case SCHEDROST -> " Щедрость ";
-            case TRUDOLUBIE -> " Трудолюбие ";
-            case ZHIZNERADOSTNOST -> " Жизнерадостность ";
-            case SPOSOBNOST_BLAGODARIT -> " Способность благодарить ";
-            case ZDRAVOMYSLIE -> " Здравомыслие ";
-            case TERPELIVOST -> " Терпеливость ";
-            case BEREZHLIVOST -> " Бережливость ";
-            case MUDROST -> " Мудрость ";
-            case OTZUVCHIVOST -> " Отзывчивость ";
-            case SMELOST -> " Смелость ";
-            case CREATIVNOST -> " Креативность ";
-            case CHUVSTVO_YOUMORA -> " Чувство юмора ";
-            case INICIATIVNOST -> " Инициативность ";
-            case PUNKTUALNOST -> " Пунктуальность ";
-            case SKROMNOST -> " Скромность ";
-            case UVERENNOST -> " Уверенность ";
-        };
+        switch (positives) {
+            case ISKRENNOST:
+                return " Искренность ";
+            case STRESSOUSTOUCHIVOST:
+                return" Стрессоустойчивость ";
+            case ORGANIZOVANNOST:
+                return" Организованность ";
+            case VNIMATELNOST:
+                return" Внимательность ";
+            case SCHEDROST:
+                return" Щедрость ";
+            case TRUDOLUBIE:
+                return " Трудолюбие ";
+            case ZHIZNERADOSTNOST:
+                return " Жизнерадостность ";
+            case SPOSOBNOST_BLAGODARIT:
+                return " Способность благодарить ";
+            case ZDRAVOMYSLIE:
+                return " Здравомыслие ";
+            case TERPELIVOST:
+                return " Терпеливость ";
+            case BEREZHLIVOST:
+                return " Бережливость ";
+            case MUDROST:
+                return " Мудрость ";
+            case OTZUVCHIVOST:
+                return " Отзывчивость ";
+            case SMELOST:
+                return " Смелость ";
+            case CREATIVNOST:
+                return  " Креативность ";
+            case CHUVSTVO_YOUMORA:
+                return  " Чувство юмора ";
+            case INICIATIVNOST:
+                return  " Инициативность ";
+            case PUNKTUALNOST:
+                return  " Пунктуальность ";
+            case SKROMNOST:
+                return  " Скромность ";
+            case UVERENNOST:
+                return  " Уверенность ";
+            default: return "Undefined";
+        }
     }
 }

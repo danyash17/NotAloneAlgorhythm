@@ -15,22 +15,39 @@ public enum Music {
     RITMNBLUES,
     AMBIENT,
     COUNTRY;
-    public static String getStringValue(Music music){
-        return switch (music) {
-            case POP -> " Поп ";
-            case ROCK -> " Рок ";
-            case SHANSON -> " Шансон ";
-            case CLASSIC -> " Классическая ";
-            case ELECTRO -> " Электро ";
-            case TRADITIONAL -> " Народная ";
-            case JAZZ -> " Джаз ";
-            case BLUES -> " Блюз ";
-            case RAP -> " Рэп ";
-            case LATINO -> " Латино ";
-            case HIP_HOP -> " Хип-хоп ";
-            case RITMNBLUES -> " Ритм-н-блюз ";
-            case AMBIENT -> " Духовная ";
-            case COUNTRY -> " Кантри ";
-        };
+
+    public static String getStringValue(Music music) {
+        switch (music) {
+            case POP:
+                return " Поп ";
+            case ROCK:
+                return " Рок ";
+            case SHANSON:
+                return " Шансон ";
+            case CLASSIC:
+                return " Классическая ";
+            case ELECTRO:
+                return " Электро ";
+            case TRADITIONAL:
+                return " Народная ";
+            case JAZZ:
+                return " Джаз ";
+            case BLUES:
+                return " Блюз ";
+            case RAP:
+                return " Рэп ";
+            case LATINO:
+                return " Латино ";
+            case HIP_HOP:
+                return " Хип-хоп ";
+            case RITMNBLUES:
+                return " Ритм-н-блюз ";
+            case AMBIENT:
+                return " Духовная ";
+            case COUNTRY:
+                return " Кантри ";
+            default:
+                return "Undefined";
+        }
     }
 }

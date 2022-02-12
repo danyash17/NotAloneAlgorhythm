@@ -8,9 +8,11 @@ import java.util.List;
 
 public class Session {
     private File base;
-    private File photoDirectory;
+    private File saveMatchesFile;
     private List<List<String>> table;
     private List<Questionnaire> questionnaires;
+    private Form selectedLeftForm;
+    private Form selectedRightForm;
 
     public Session(File base) {
         this.base = base;
@@ -40,11 +42,27 @@ public class Session {
         this.questionnaires = questionnaires;
     }
 
-    public File getPhotoDirectory() {
-        return photoDirectory;
+    public Form getSelectedLeftForm() {
+        return selectedLeftForm;
     }
 
-    public void setPhotoDirectory(File photoDirectory) {
-        this.photoDirectory = photoDirectory;
+    public void setSelectedLeftForm(Form selectedLeftForm) {
+        this.selectedLeftForm = selectedLeftForm;
+    }
+
+    public Form getSelectedRightForm() {
+        return selectedRightForm;
+    }
+
+    public void setSelectedRightForm(Form selectedRightForm) {
+        this.selectedRightForm = selectedRightForm;
+    }
+
+    public File getSaveMatchesFile() {
+        return saveMatchesFile;
+    }
+
+    public void setSaveMatchesFile(File saveMatchesFile) {
+        this.saveMatchesFile = saveMatchesFile;
     }
 }

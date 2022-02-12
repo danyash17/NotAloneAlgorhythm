@@ -1,10 +1,12 @@
 module com.example.notalone {
     requires javafx.controls;
+    requires javafx.graphics;
     requires javafx.fxml;
     requires org.apache.poi.poi;
     requires org.apache.poi.ooxml;
     requires java.datatransfer;
     requires java.desktop;
+    requires org.apache.commons.compress;
 
 
     opens com.example.notalone to javafx.fxml;

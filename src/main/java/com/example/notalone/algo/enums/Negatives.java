@@ -16,23 +16,40 @@ public enum Negatives {
     LEN,
     PESSIMISM,
     NAGLOST;
-    public static String getStringValue(Negatives negatives){
-        return switch (negatives) {
-            case GORDOST -> " Гордость ";
-            case EGOISM -> " Эгоизм ";
-            case REVNOST -> " Ревность ";
-            case OBIDCHIVOST -> " Обидчивость ";
-            case ZAVIST -> " Зависть ";
-            case MSTITELNOST -> " Мстительность ";
-            case ZHESTOKOST -> " Жестокость ";
-            case GLUPOST -> " Глупость ";
-            case NERIASHLIVOST -> " Неряшливость ";
-            case LOZH -> " Ложь ";
-            case LICEMERIE -> " Лицемерие ";
-            case ZHADNOST -> " Жадность ";
-            case LEN -> " Лень ";
-            case PESSIMISM -> " Пессимизм ";
-            case NAGLOST -> " Наглость ";
-        };
+
+    public static String getStringValue(Negatives negatives) {
+        switch (negatives) {
+            case GORDOST:
+                return " Гордость ";
+            case EGOISM:
+                return " Эгоизм ";
+            case REVNOST:
+                return " Ревность ";
+            case OBIDCHIVOST:
+                return " Обидчивость ";
+            case ZAVIST:
+                return  " Зависть ";
+            case MSTITELNOST:
+                return " Мстительность ";
+            case ZHESTOKOST:
+                return " Жестокость ";
+            case GLUPOST:
+                return  " Глупость ";
+            case NERIASHLIVOST:
+                return  " Неряшливость ";
+            case LOZH:
+                return " Ложь ";
+            case LICEMERIE:
+                return  " Лицемерие ";
+            case ZHADNOST:
+                return  " Жадность ";
+            case LEN:
+                return   " Лень ";
+            case PESSIMISM:
+                return  " Пессимизм ";
+            case NAGLOST:
+                return  " Наглость ";
+            default: return "Undefined";
+        }
     }
 }

@@ -21,28 +21,51 @@ public enum Faculty {
     LYCEUM,
     MSEU,
     NON_BSU;
-    public static String getStringValue(Faculty faculty){
-        return switch (faculty) {
-            case BIO -> "Биофак";
-            case MILITARY -> "Военный";
-            case GEO -> "Геофак";
-            case JOURNALISTIC -> "Журфак";
-            case HISTORICAL -> "Истфак";
-            case MECHMAT -> "Мехмат";
-            case FPM -> "ФПМИ";
-            case RPACT -> "Раф ";
-            case FSC -> "ФСК";
-            case PHILOSOFIC -> "ФФСН";
-            case PHYSICAL -> "Физфак";
-            case PHILOLOGICAL -> "Филфак";
-            case CHEMICAL -> "Химфак";
-            case ECONOMIC -> "Экономфак";
-            case LAW -> "Юрфак";
-            case BUSINESS -> "ИБ";
-            case INTERNATIONAL_RELATIONSHIPS -> "ФМО";
-            case LYCEUM -> "Лицей БГУ";
-            case MSEU -> "Сахарова";
-            case NON_BSU -> "Не из БГУ";
-        };
+
+    public static String getStringValue(Faculty faculty) {
+        switch (faculty) {
+            case BIO:
+                return "Биофак";
+            case MILITARY:
+                return "Военный";
+            case GEO:
+                return "Геофак";
+            case JOURNALISTIC:
+                return "Журфак";
+            case HISTORICAL:
+                return "Истфак";
+            case MECHMAT:
+                return "Мехмат";
+            case FPM:
+                return "ФПМИ";
+            case RPACT:
+                return "Раф ";
+            case FSC:
+                return "ФСК";
+            case PHILOSOFIC:
+                return "ФФСН";
+            case PHYSICAL:
+                return "Физфак";
+            case PHILOLOGICAL:
+                return "Филфак";
+            case CHEMICAL:
+                return  "Химфак";
+            case ECONOMIC:
+                return "Экономфак";
+            case LAW:
+                return "Юрфак";
+            case BUSINESS:
+                return "ИБ";
+            case INTERNATIONAL_RELATIONSHIPS:
+                return  "ФМО";
+            case LYCEUM:
+                return  "Лицей БГУ";
+            case MSEU:
+                return  "Сахарова";
+            case NON_BSU:
+                return  "Не из БГУ";
+            default:
+                return "Undefined";
+        }
     }
 }

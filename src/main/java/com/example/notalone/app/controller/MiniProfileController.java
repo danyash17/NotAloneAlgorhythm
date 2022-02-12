@@ -2,10 +2,12 @@ package com.example.notalone.app.controller;
 
 import com.example.notalone.algo.entity.Form;
 import com.example.notalone.app.logic.ProfileSelection;
+import com.example.notalone.app.session.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class MiniProfileController {
     @FXML
@@ -25,14 +27,13 @@ public class MiniProfileController {
 
     @FXML
     private ImageView profileimage;
-
-    private ProfileSelection profile_selection;
-
+    private ProfileSelection profileSelection;
+    private Session session;
     private Form form;
 
     public void setData(Form form, ProfileSelection profile_selection, int compability, int id, int orderNum) {
         this.form = form;
-        this.profile_selection = profile_selection;
+        this.profileSelection = profile_selection;
         points.setText(String.valueOf(compability));
         nametext.setText(form.getName());
         orderNumber.setText(String.valueOf(orderNum));
@@ -48,6 +49,11 @@ public class MiniProfileController {
 
     @FXML
     public void click(javafx.scene.input.MouseEvent mouseEvent) {
-        profile_selection.onClickProfile(form);
+        profileSelection.onClickProfile(form);
+        session.setSelectedRightForm(form);
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
     }
 }

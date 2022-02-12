@@ -3,12 +3,11 @@ package com.example.notalone.app.controller;
 import com.example.notalone.algo.entity.Form;
 import com.example.notalone.algo.entity.Pair;
 import com.example.notalone.algo.entity.questionnaire.Questionnaire;
-import com.example.notalone.algo.entity.questionnaire.question.Question;
 import com.example.notalone.algo.enums.Aim;
-import com.example.notalone.algo.enums.Gender;
 import com.example.notalone.algo.factory.RelevantsFactory;
 import com.example.notalone.algo.mapper.FormMapper;
 import com.example.notalone.algo.mapper.QuestionnaireMapper;
+import com.example.notalone.algo.parser.TxtSaver;
 import com.example.notalone.algo.parser.XlsParser;
 import com.example.notalone.app.logic.ProfileSelection;
 import com.example.notalone.app.session.Session;
@@ -19,18 +18,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.DirectoryChooser;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.NoSuchFileException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainSceneController implements Initializable {
 
@@ -42,6 +40,8 @@ public class MainSceneController implements Initializable {
     public MenuItem closeMenuButton;
     @FXML
     public MenuItem quitMenuButton;
+    @FXML
+    public Button matchButton;
     @FXML
     private GridPane leftanchorpane;
     @FXML
@@ -73,7 +73,8 @@ public class MainSceneController implements Initializable {
     @FXML
     private CheckBox friendshipcheck;
     private Session session;
-    private ProfileSelection profileSelection;
+    private ProfileSelection leftProfileSelection;
+    private String matchButtonInitialStyle;
     private final FormMapper formMapper = new FormMapper();
 
     @FXML
@@ -83,20 +84,24 @@ public class MainSceneController implements Initializable {
         for (int i = 0; i < questionnaires.size(); i++) {
             Form form = formMapper.map(questionnaires.get(i));
             if (Integer.parseInt(idtextfieid.getText()) == form.getId()) {
-                this.showLeftProfile(form, rightanchorpane);
+                this.setProfile(form, rightanchorpane);
+                session.setSelectedLeftForm(form);
                 break;
             }
         }
+        grid.getChildren().clear();
+        leftanchorpane.getChildren().clear();
     }
 
-    public void showLeftProfile(Form form, GridPane gride) {
+    public void setProfile(Form form, GridPane grid) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("fxml/Profile.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             ProfileController imageController = fxmlLoader.getController();
             imageController.setData(form);
-            gride.add(anchorPane, 1, 1);
+            grid.add(anchorPane, 1, 1);
+            matchButton.setStyle(matchButtonInitialStyle + "-fx-background-image: url(broken-heart.png)");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,31 +110,31 @@ public class MainSceneController implements Initializable {
     public List<Pair> filter(List<Pair> pairs) {
         boolean relationships = relationshipcheck.isSelected();
         boolean friendship = friendshipcheck.isSelected();
-        Aim selectedAim = relationships ? friendship ? Aim.ANYTHING : Aim.RELATIONSHIPS : friendship ? Aim.FRIENDSHIP : null;
+        Aim selectedAim = relationships ? friendship ? Aim.ANYTHING : Aim.RELATIONSHIPS : friendship ? Aim.FRIENDSHIP : Aim.ANYTHING;
         boolean sameSex = samesexrbutton.isSelected();
         boolean diffSex = difsexbutton.isSelected();
         boolean blindDate = blinddatebutton.isSelected();
-        for (Iterator<Pair> iterator = pairs.iterator(); iterator.hasNext();) {
+        for (Iterator<Pair> iterator = pairs.iterator(); iterator.hasNext(); ) {
             boolean delete = false;
             Pair pair = iterator.next();
             Form current = formMapper.map(pair.getCurrent());
             Form target = formMapper.map(pair.getTarget());
-            if (selectedAim != null && !selectedAim.equals(Aim.ANYTHING)) {
+            if (selectedAim != Aim.ANYTHING) {
                 Aim aim = Aim.getAimValue(current.getAim());
                 delete = !aim.equals(selectedAim);
             }
             if (sameSex || diffSex) {
-                if(sameSex) delete = !current.getGender().equals(target.getGender());
-                if(diffSex) delete = current.getGender().equals(target.getGender());
+                if (sameSex) delete = !current.getGender().equals(target.getGender());
+                if (diffSex) delete = current.getGender().equals(target.getGender());
             }
             if (blindDate) delete = !current.isBlindDate();
-            if(delete) iterator.remove();
+            if (delete) iterator.remove();
         }
         return pairs;
     }
 
     @FXML
-    void showRelevants(ActionEvent event) {
+    public void setRelevants(ActionEvent event) {
         RelevantsFactory factory = new RelevantsFactory();
         List<Pair> pairs = factory.getRelevants(Integer.parseInt(idtextfieid.getText()) - 2, session.getQuestionnaires());
         pairs = filter(pairs);
@@ -141,8 +146,9 @@ public class MainSceneController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("fxml/MiniProfile.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 MiniProfileController imageController = fxmlLoader.getController();
+                imageController.setSession(session);
                 Form form = formMapper.map(pair.getCurrent());
-                imageController.setData(form, profileSelection, pair.getRelevance(), form.getId(), i + 1);
+                imageController.setData(form, leftProfileSelection, pair.getRelevance(), form.getId(), i + 1);
                 grid.add(anchorPane, 0, i);
             }
         } catch (IOException e) {
@@ -152,10 +158,10 @@ public class MainSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        profileSelection = new ProfileSelection() {
+        leftProfileSelection = new ProfileSelection() {
             @Override
             public void onClickProfile(Form form) {
-                showLeftProfile(form, leftanchorpane);
+                setProfile(form, leftanchorpane);
             }
         };
 
@@ -163,6 +169,8 @@ public class MainSceneController implements Initializable {
         samesexrbutton.setToggleGroup(checkGender);
         difsexbutton.setToggleGroup(checkGender);
         menu.setStyle("-fx-background-color: #DD371D");
+        matchButtonInitialStyle = matchButton.getStyle();
+        matchButton.setStyle(matchButtonInitialStyle +"-fx-background-image: url(broken-heart.png)");
     }
 
     public void openFile(ActionEvent actionEvent) {
@@ -173,6 +181,7 @@ public class MainSceneController implements Initializable {
         session = new Session(file);
         try {
             file = chooser.showOpenDialog(new Stage());
+            session.setBase(file);
             session.setTable(new XlsParser().parse(file));
             session.setQuestionnaires(new QuestionnaireMapper().map(session.getTable()));
         } catch (IOException e) {
@@ -182,6 +191,7 @@ public class MainSceneController implements Initializable {
             menu.setStyle("-fx-background-color: #17A226");
             findbutton.setDisable(false);
             applybutton.setDisable(false);
+            matchButton.setDisable(false);
         }
     }
 
@@ -190,6 +200,7 @@ public class MainSceneController implements Initializable {
         menu.setStyle("-fx-background-color: #DD371D");
         findbutton.setDisable(true);
         applybutton.setDisable(true);
+        matchButton.setDisable(true);
         grid.getChildren().clear();
         leftanchorpane.getChildren().clear();
         rightanchorpane.getChildren().clear();
@@ -197,5 +208,23 @@ public class MainSceneController implements Initializable {
 
     public void quit(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    public void doMatch(ActionEvent actionEvent) {
+        TxtSaver saver = new TxtSaver();
+        if (session.getSaveMatchesFile() == null && session.getBase() != null) {
+            File file = new File(session.getBase().getParent() + "matches " + System.currentTimeMillis() + ".txt");
+            try {
+                if (!file.createNewFile()) throw new NoSuchFileException(file.toString());
+                session.setSaveMatchesFile(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+                matchButton.setStyle("-fx-background-color: #ea0a0a");
+            }
+        }
+        if (session.getSelectedRightForm() != null && session.getSelectedLeftForm() != null) {
+            saver.save(session.getSaveMatchesFile(), session.getSelectedRightForm(), session.getSelectedLeftForm());
+            matchButton.setStyle(matchButtonInitialStyle + "-fx-background-image: url(heart.png)");
+        }
     }
 }

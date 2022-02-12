@@ -6,11 +6,16 @@ public enum Gender{
     NONBINARY,
     ANYONE;
     public static String getStringValue(Gender gender){
-        return switch (gender) {
-            case MALE -> "Мужчина";
-            case FEMALE -> "Женщина";
-            case NONBINARY -> "Небинарн.";
-            case ANYONE -> "Не важно";
-        };
+        switch (gender) {
+            case MALE :
+                return "Мужчина";
+            case FEMALE :
+                return "Женщина";
+            case NONBINARY :
+                return "Небинарн.";
+            case ANYONE :
+                return "Не важно";
+            default: return "Undefined";
+        }
     }
 }

@@ -87,7 +87,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="122.0">
                      <children>
-                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="77.0" mnemonicParsing="false" onAction="#showRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
+                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="77.0" mnemonicParsing="false" onAction="#setRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
@@ -173,6 +173,17 @@
                   </AnchorPane>
                </children>
             </HBox>
+            <Button fx:id="matchButton" layoutX="391.0" layoutY="15.0" maxHeight="79.0" maxWidth="95.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="95.0" onAction="#doMatch" disable="true" style="-fx-background-radius: 40; -fx-min-width: 40; -fx-min-height: 40; -fx-max-width: 40; -fx-max-height: 40; -fx-background-insets: 0px; -fx-padding: 0px; -fx-background-repeat: no-repeat; -fx-background-size: 30 30; -fx-background-position: center center;" />
+            <Text fill="#ff464b" layoutX="321.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It's a">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fill="#ff464b" layoutX="437.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="match">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

@@ -14,21 +14,36 @@ public enum Zodiac {
     KOZEROG,
     VODOLEY,
     RYBY;
+
     public static String getStringValue(Zodiac zodiac) {
-        return switch (zodiac) {
-            case OVEN -> "Овен";
-            case TELEC -> "Телец";
-            case BLIZNETS -> "Близнец";
-            case RAK -> "Рак";
-            case LEV -> "Лев";
-            case DEVA -> "Дева";
-            case VESY -> "Весы";
-            case SCORPION -> "Скорпион";
-            case ZMEENOSEC -> "Змееносец";
-            case STRELEC -> "Стрелец";
-            case KOZEROG -> "Козерог";
-            case VODOLEY -> "Водолей";
-            case RYBY -> "Рыбы";
-        };
+        switch (zodiac) {
+            case OVEN:
+                return "Овен";
+            case TELEC:
+                return "Телец";
+            case BLIZNETS:
+                return"Близнец";
+            case RAK:
+                return "Рак";
+            case LEV:
+                return "Лев";
+            case DEVA:
+                return "Дева";
+            case VESY:
+                return "Весы";
+            case SCORPION:
+                return "Скорпион";
+            case ZMEENOSEC:
+                return "Змееносец";
+            case STRELEC:
+                return "Стрелец";
+            case KOZEROG:
+                return "Козерог";
+            case VODOLEY:
+                return "Водолей";
+            case RYBY:
+                return "Рыбы";
+            default: return "Undefined";
+        }
     }
 }

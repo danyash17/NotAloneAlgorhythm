@@ -18,25 +18,44 @@ public enum Hobby {
     SINGING,
     MUSIC_INSTRUMENTS,
     TATOO;
-    public static String getStringValue(Hobby hobby){
-        return switch (hobby) {
-            case TOURISM -> " Туризм ";
-            case FISHING -> " Рыбалка ";
-            case DANCE -> " Танцы ";
-            case THEATRE -> " Театр ";
-            case COLLECT -> " Коллекционирование ";
-            case GARDENING -> " Садоводство ";
-            case COMPUTER_GAMES -> " Компьютерные игры ";
-            case SPORT -> " Спорт ";
-            case PAINTING -> " Рисование ";
-            case COOKING -> " Кулинария ";
-            case CRAFTS -> " Рукоделие ";
-            case CHESS -> " Шахматы ";
-            case TABLE_GAMES -> " Настольные игры ";
-            case PROGRAMMING -> " Программирование ";
-            case SINGING -> " Пение ";
-            case MUSIC_INSTRUMENTS -> " Музыкальные иструменты ";
-            case TATOO -> " Тату ";
-        };
+
+    public static String getStringValue(Hobby hobby) {
+        switch (hobby) {
+            case TOURISM:
+                return " Туризм ";
+            case FISHING:
+                return " Рыбалка ";
+            case DANCE:
+                return " Танцы ";
+            case THEATRE:
+                return " Театр ";
+            case COLLECT:
+                return " Коллекционирование ";
+            case GARDENING:
+                return " Садоводство ";
+            case COMPUTER_GAMES:
+                return " Компьютерные игры ";
+            case SPORT:
+                return " Спорт ";
+            case PAINTING:
+                return  " Рисование ";
+            case COOKING:
+                return " Кулинария ";
+            case CRAFTS:
+                return " Рукоделие ";
+            case CHESS:
+                return " Шахматы ";
+            case TABLE_GAMES:
+                return " Настольные игры ";
+            case PROGRAMMING:
+                return " Программирование ";
+            case SINGING:
+                return " Пение ";
+            case MUSIC_INSTRUMENTS:
+                return " Музыкальные иструменты ";
+            case TATOO:
+                return  " Тату ";
+            default: return "Undefined";
+        }
     }
 }

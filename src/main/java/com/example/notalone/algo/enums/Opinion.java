@@ -6,10 +6,14 @@ public enum Opinion {
     NEUTRAL;
 
     public static String getStringValue(Opinion opinion) {
-        return switch (opinion) {
-            case POSITIVE -> "Положительное";
-            case NEGATIVE -> "Отрицательное";
-            case NEUTRAL -> "Нейтральное";
-        };
+        switch (opinion) {
+            case POSITIVE :
+                return "Положительное";
+            case NEGATIVE :
+                return "Отрицательное";
+            case NEUTRAL :
+                return "Нейтральное";
+            default: return "Undefined";
+        }
     }
 }
