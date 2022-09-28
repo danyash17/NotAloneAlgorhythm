@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="594.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.notalone.app.controller.MainSceneController">
+   <children>
+      <MenuBar layoutX="10.0" layoutY="10.0" style="-fx-background-color: FFF3E8;">
+         <menus>
+            <Menu fx:id="menu" mnemonicParsing="false" text="Файл">
+               <items>
+                  <MenuItem fx:id="openMenuButton" mnemonicParsing="false" onAction="#openFile" text="Открыть базу…" />
+                  <MenuItem fx:id="closeMenuButton" mnemonicParsing="false" onAction="#closeFile" text="Закрыть базу" />
+                  <MenuItem fx:id="quitMenuButton" mnemonicParsing="false" onAction="#quit" text="Выйти из приложения" />
+               </items>
+            </Menu>
+         </menus>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuBar>
+      <AnchorPane prefHeight="200.0" prefWidth="820.0" style="-fx-background-color: FFF3E8;">
+         <children>
+            <HBox alignment="CENTER" layoutX="1.0" layoutY="8.0" prefHeight="122.0" prefWidth="820.0">
+               <children>
+                  <AnchorPane prefHeight="122.0">
+                     <children>
+                        <TextField fx:id="idtextfieid" layoutX="32.0" layoutY="23.0" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: FFFFFF;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor></TextField>
+                        <Button fx:id="findbutton" disable="true" layoutX="57.0" layoutY="77.0" mnemonicParsing="false" onAction="#findbuttonaction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: FF464B; -fx-background-radius: 15px;" text="Выбрать цель" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Circle fill="#ff464b" layoutX="16.0" layoutY="33.0" radius="4.0" stroke="#ff464b" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Circle fill="#ff464b" layoutX="22.0" layoutY="33.0" radius="4.0" stroke="#ff464b" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff464b" height="9.0" layoutX="14.5" layoutY="31.0" rotate="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
+                        <Text fill="#ff464b" layoutX="21.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер строки">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="122.0">
+                     <children>
+                        <RadioButton fx:id="samesexrbutton" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" text="Одного пола" textFill="#dd48e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <RadioButton fx:id="difsexbutton" layoutX="133.0" layoutY="14.0" mnemonicParsing="false" text="Разного пола" textFill="#dd48e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <CheckBox fx:id="friendshipcheck" layoutX="13.0" layoutY="46.0" mnemonicParsing="false" text="Дружба" textFill="#dd48e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></CheckBox>
+                        <CheckBox fx:id="relationshipcheck" layoutX="133.0" layoutY="46.0" mnemonicParsing="false" text="Отношения" textFill="#dd48e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></CheckBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="122.0">
+                     <children>
+                        <Button fx:id="applybutton" disable="true" layoutX="58.0" layoutY="77.0" mnemonicParsing="false" onAction="#setRelevants" prefHeight="30.0" prefWidth="120.0" style="-fx-background-radius: 15px; -fx-background-color: FF464B;" text="Найти мэтчи!" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <RadioButton fx:id="blinddatebutton" layoutX="35.0" layoutY="14.0" mnemonicParsing="false" text="Готов на свидание вслепую" textFill="#dd48e2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></RadioButton>
+                        <TextField fx:id="starttext" layoutX="53.0" layoutY="42.0" prefHeight="25.0" prefWidth="35.0" promptText="0" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="0">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <TextField fx:id="endtext" layoutX="131.0" layoutY="42.0" prefHeight="25.0" prefWidth="44.0" promptText="100" style="-fx-background-color: ffffff; -fx-background-radius: 10px;" text="100">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Text fill="#dd48e2" layoutX="34.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="с">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#dd48e2" layoutX="102.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="до">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="436.0" prefWidth="785.0" style="-fx-background-color: FFF3E8;">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="62.0" prefHeight="435.0" prefWidth="804.0">
+               <children>
+                  <AnchorPane prefHeight="435.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <GridPane fx:id="rightanchorpane" layoutY="2.0" prefHeight="17.0" prefWidth="26.0">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <columnConstraints>
+                              <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="383.0" prefWidth="193.0">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" layoutX="-7.0" layoutY="-7.0" prefHeight="408.0" prefWidth="200.0" style="-fx-background-color: FFF3E8;" vbarPolicy="NEVER">
+                           <content>
+                              <GridPane fx:id="grid">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="435.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <GridPane fx:id="leftanchorpane" prefHeight="17.0" prefWidth="26.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <columnConstraints>
+                              <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Button fx:id="matchButton" layoutX="391.0" layoutY="15.0" maxHeight="79.0" maxWidth="95.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="95.0" onAction="#doMatch" disable="true" style="-fx-background-radius: 40; -fx-min-width: 40; -fx-min-height: 40; -fx-max-width: 40; -fx-max-height: 40; -fx-background-insets: 0px; -fx-padding: 0px; -fx-background-repeat: no-repeat; -fx-background-size: 30 30; -fx-background-position: center center;" />
+            <Text fill="#ff464b" layoutX="321.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It's a">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+            <Text fill="#ff464b" layoutX="437.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="match">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
